@@ -1,0 +1,134 @@
+.primaryNav :global {
+  width: 100%;
+  height: 92px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+
+  .content-wrapper {
+    width: 1280px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+
+    .left {
+      width: 200px;
+
+      img {
+        width: 130px;
+        object-fit: contain;
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+
+      .menu {
+        ul {
+          display: flex;
+
+          li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin-right: 60px;
+            color: #605f60;
+            font-weight: 500;
+            font-size: 15px;
+
+            &:nth-last-of-type(1) {
+              margin-right: 40px;
+            }
+
+            svg {
+              margin-left: 14px;
+            }
+
+            &.left-icon {
+              svg {
+                margin-right: 14px;
+                margin-left: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .profile {
+        display: flex;
+        align-items: center;
+        background: #f8f9fc;
+        border-radius: 25px;
+        padding: 4px 18px 4px 4px;
+
+        .avatar {
+          width: 35px;
+          height: 35px;
+          border-radius: 100%;
+          overflow: hidden;
+          margin-right: 10px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .name {
+          margin-right: 5px;
+          color: #605f60;
+          font-weight: 500;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+.secondaryNav :global {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+
+  .content-wrapper {
+    width: 1280px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 15px;
+
+    .menu {
+      ul {
+        display: flex;
+
+        li {
+          list-style: none;
+          display: flex;
+          align-items: center;
+          margin-right: 45px;
+          color: #2e2e2e;
+          font-weight: 500;
+          font-size: 15px;
+          padding: 15px 20px;
+
+          &.active {
+            color: #0D968D;
+            border-bottom: 1px solid #0D968D;
+          }
+
+          &:nth-last-of-type(1) {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+  }
+
+}
