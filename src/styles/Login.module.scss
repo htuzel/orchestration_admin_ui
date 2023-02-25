@@ -1,0 +1,69 @@
+.login :global {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    background-color: white;
+    width: 420px;
+    height: 640px;
+    padding: 120px 50px 50px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 5px;
+
+    .logo {
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 160px;
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 17px;
+
+      .MuiTextField-root {
+        .MuiInputBase-formControl {
+          background-color: #F1F5FB;
+          height: 50px;
+        }
+
+        label {
+          font-size: 14px;
+          color: #8D90A4;
+        }
+
+        fieldset{
+          display: none;
+        }
+      }
+
+      button {
+        background: linear-gradient(to right, #5aa1ff, #3e6af3);
+      }
+
+      .forgot-password {
+        font-size: 14px;
+        color: #1976d2;
+        text-align: center;
+      }
+    }
+
+    .no-account{
+      text-align: center;
+      color: #8D90A4;
+      font-size: 15px;
+
+      a{
+        color: #1976d2;
+      }
+    }
+  }
+}
