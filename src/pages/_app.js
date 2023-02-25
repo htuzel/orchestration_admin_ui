@@ -1,5 +1,11 @@
 import '@/styles/globals.scss'
+import {Provider} from "react-redux";
+import configureStore from './../redux/store';
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+const store = configureStore()
+
+export default function App({Component, pageProps}) {
+    return <Provider store={store}>
+        <Component {...pageProps} />
+    </Provider>
 }
