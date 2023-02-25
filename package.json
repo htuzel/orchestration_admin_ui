@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@iconify/react": "^4.1.0",
+    "@mui/material": "^5.11.10",
     "eslint": "8.34.0",
     "eslint-config-next": "13.2.1",
     "next": "13.2.1",
