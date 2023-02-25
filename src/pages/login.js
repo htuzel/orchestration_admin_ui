@@ -48,7 +48,6 @@ const Login = (props) => {
 };
 
 const mapStateToProps = (state => ({
-    user: state.userReducer.user
 }));
 
 const mapDispatchToProps = {

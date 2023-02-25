@@ -1,17 +1,11 @@
-import {SET_API_TOKEN, SET_USER} from "../actions/userAction";
+import {SET_API_TOKEN} from "../actions/authAction";
 
 const initalState = {
-    user: "",
     apiToken: ""
 }
 
 const userReducer = (state = initalState, action) => {
     switch (action.type) {
-        case SET_USER:
-            return {
-                ...state,
-                user: action.value
-            }
         case SET_API_TOKEN:
             return {
                 ...state,
