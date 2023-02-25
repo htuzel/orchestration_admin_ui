@@ -40,9 +40,15 @@
           color: #8D90A4;
         }
 
-        fieldset{
+        fieldset {
           display: none;
         }
+      }
+
+      .error {
+        font-size: 14px;
+        color: red;
+        text-align: center;
       }
 
       button {
@@ -56,12 +62,12 @@
       }
     }
 
-    .no-account{
+    .no-account {
       text-align: center;
       color: #8D90A4;
       font-size: 15px;
 
-      a{
+      a {
         color: #1976d2;
       }
     }
