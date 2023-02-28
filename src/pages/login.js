@@ -6,6 +6,7 @@ import {login} from "@/redux/actions/authAction";
 import {connect} from "react-redux";
 import {useRouter} from 'next/router'
 import {DASHBOARD} from "@/commons/router";
+import AuthLayout from "@/layouts/authLayout";
 
 const Login = (props) => {
     const router = useRouter()
@@ -46,6 +47,8 @@ const Login = (props) => {
         </div>
     );
 };
+
+Login.getLayout = (page) => <AuthLayout>{page}</AuthLayout>;
 
 const mapStateToProps = (state => ({
 }));

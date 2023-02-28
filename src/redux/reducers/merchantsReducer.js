@@ -1,7 +1,8 @@
 import {SET_MERCHANTS} from "../actions/merchantsAction";
 
 const initalState = {
-    merchants: ""
+    merchants: "",
+    clients: ""
 }
 
 const merchantsReducer = (state = initalState, action) => {
