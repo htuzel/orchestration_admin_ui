@@ -15,8 +15,8 @@ const Login = (props) => {
     const [error, setError] = useState(false);
 
     const handleLogin = async () => {
-        const loginReponse = await props.login(email, password);
-        if (loginReponse) {
+        const loginResponse = await props.login(email, password);
+        if (loginResponse) {
             router.push(DASHBOARD)
             setError(false);
         }
