@@ -1,0 +1,27 @@
+.customTable :global{
+  .MuiTableCell-head {
+    font-weight: bold;
+  }
+
+  .manage {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+
+    span {
+      background-color: #f3f4f6;
+      color: #838383;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #d8eafb;
+      }
+    }
+  }
+}

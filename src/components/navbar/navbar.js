@@ -1,12 +1,15 @@
 import React from 'react';
 import styles from './Navbar.module.scss';
 import {Icon} from '@iconify/react';
+import Link from "next/link";
 
 const Navbar = () => {
     return (
         <nav className={styles.primaryNav} aria-label="primary">
             <div className="content-wrapper">
-                <div className="left"><img src="https://flalingo.com/cdn-cgi/image/f=auto,width=550,quality=90/img/new_home/responsive_img/logo_withouth_motto_w_1400.webp"/></div>
+                <div className="left">
+                    <Link href="/merchants"><img src="https://flalingo.com/cdn-cgi/image/f=auto,width=550,quality=90/img/new_home/responsive_img/logo_withouth_motto_w_1400.webp"/></Link>
+                </div>
                 <div className="right">
                     <div className="menu">
                         <ul>

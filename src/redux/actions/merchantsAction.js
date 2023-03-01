@@ -39,7 +39,7 @@ export const setMerchants = (user) => {
 
 export const fetchClient = (domain) => {
     return async (dispatch, getState) => {
-        let response = await axios.get(`${API_URL}/admin/client/stats?domain=${domain}&filter=100`, {
+        let response = await axios.get(`${API_URL}/admin/client/stats?domain=${domain}&filter=7`, {
             headers: {Authorization: `Basic ${getState().userReducer.apiToken}`}
         });
         return response.data;

@@ -1,5 +1,6 @@
 import {useEffect} from 'react';
 import styles from '@/styles/Merchants.module.scss'
+import customTableStyles from '@/styles/CustomTable.module.scss'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -33,8 +34,8 @@ const Merchants = (props) => {
                                         <h2>{merchant.email}</h2>
                                         <p><span>{merchant.clients.length}</span> sonuç listelendi</p>
                                     </div>
-                                    <TableContainer component={Paper}>
-                                        <Table sx={{minWidth: 650}} aria-label="simple table">
+                                    <TableContainer component={Paper} className={customTableStyles.customTable}>
+                                        <Table aria-label="simple table">
                                             <TableHead>
                                                 <TableRow>
                                                     <TableCell>Client</TableCell>
@@ -50,7 +51,9 @@ const Merchants = (props) => {
                                                 {
                                                     merchant.clients.map((client, key) => (
                                                         <TableRow hover key={key}>
-                                                            <TableCell component="th" scope="row">{client.domain}</TableCell>
+                                                            <TableCell component="th" scope="row">
+                                                                <Link href={`${MERCHANTS}${CLIENT}/${client && client._id}`}>{client.domain}</Link>
+                                                            </TableCell>
                                                             <TableCell align="center">{client.detail && client.detail.users}</TableCell>
                                                             <TableCell align="center">{client.detail && client.detail.sessions}</TableCell>
                                                             <TableCell align="center">{client.detail && client.detail.pageviews}</TableCell>
@@ -58,7 +61,7 @@ const Merchants = (props) => {
                                                             <TableCell align="center">0</TableCell>
                                                             <TableCell align="center" className="manage">
                                                                 <span><Icon icon="mdi:gear"/></span>
-                                                                <Link href={`${MERCHANTS}${CLIENT}/${client && client._id}`}><span><Icon icon="material-symbols:dashboard"/></span></Link>
+                                                                <Link href={`${MERCHANTS}${CLIENT}/${client && client._id}/dashboard`}><span><Icon icon="material-symbols:dashboard"/></span></Link>
                                                             </TableCell>
                                                         </TableRow>
                                                     ))
