@@ -1,0 +1,30 @@
+.leadScoreContainer :global {
+  .default {
+    .lead-score {
+      width: 40px !important;
+      height: 40px !important;
+    }
+
+    .MuiTypography-caption{
+      font-size: 14px;
+    }
+  }
+
+  .lead-score {
+    width: 110px !important;
+    height: 110px !important;
+    border-radius: 100%;
+    background-color: #e6faf0;
+    color: #1ad176;
+  }
+
+  .MuiTypography-caption {
+    font-size: 32px;
+    color: #080;
+  }
+
+  .name {
+    font-size: 18px;
+    color: #605f60;
+  }
+}

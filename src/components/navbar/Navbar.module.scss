@@ -14,11 +14,61 @@
     padding: 0 15px;
 
     .left {
-      width: 200px;
+      display: flex;
 
-      img {
-        width: 130px;
-        object-fit: contain;
+      .logo {
+        img {
+          width: 130px;
+          object-fit: contain;
+        }
+      }
+
+      .search {
+        display: flex;
+        align-items: center;
+        width: 400px;
+        position: relative;
+        margin-left: 15px;
+
+        .search-group {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          justify-content: space-between;
+          height: 35px;
+          overflow: hidden;
+          border: 1px solid #efefef;
+
+          input {
+            border-radius: 0;
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            padding: 0 15px;
+          }
+
+          .search-icon {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+          }
+        }
+
+        .list {
+          background-color: white;
+          position: absolute;
+          top: 40px;
+          width: 100%;
+          border: 1px solid #efefef;
+          z-index: 2;
+
+          .my-chip {
+            line-height: normal;
+          }
+        }
       }
     }
 

@@ -115,25 +115,6 @@
           flex-direction: column;
           align-items: center;
           gap: 10px;
-
-          .lead-score {
-            width: 110px !important;
-            height: 110px !important;
-            border-radius: 100%;
-            background-color: #e6faf0;
-            color: #1ad176;
-            font-size: 18px;
-          }
-
-          .MuiTypography-caption {
-            font-size: 32px;
-            color: #080;
-          }
-
-          .name {
-            font-size: 18px;
-            color: #605f60;
-          }
         }
 
         .segments {

@@ -30,6 +30,5 @@ export const setApiToken = (token) => {
 
         return true;
     }
-
 }
 
