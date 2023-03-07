@@ -1,8 +1,7 @@
-import {SET_CLIENTS, SET_MERCHANTS} from "../actions/merchantsAction";
+import {SET_MERCHANTS} from "../actions/merchantsAction";
 
 const initalState = {
-    merchants: "",
-    clients: ""
+    merchants: ""
 }
 
 const merchantsReducer = (state = initalState, action) => {
@@ -11,11 +10,6 @@ const merchantsReducer = (state = initalState, action) => {
             return {
                 ...state,
                 merchants: action.value
-            }
-        case SET_CLIENTS:
-            return {
-                ...state,
-                clients: action.value
             }
         default:
             return state

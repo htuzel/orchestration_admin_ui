@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import {setApiToken} from "@/redux/actions/authAction";
 import {getCookie} from "@/commons/helpers";
 import {API_TOKEN_NAME} from "@/commons/constants";
-import {useDispatch} from 'react-redux';
 import Navbar from "@/components/navbar/navbar";
 import Head from "next/head";
 import {fetchMerchants} from "@/redux/actions/merchantsAction";

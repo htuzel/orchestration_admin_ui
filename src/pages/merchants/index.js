@@ -49,7 +49,7 @@ const Merchants = (props) => {
                                                         merchant.clients.map((client, key) => (
                                                             <TableRow hover key={key}>
                                                                 <TableCell component="th" scope="row">
-                                                                    <Link href={`${MERCHANTS}${CLIENT}/${client && client._id}`}>{client.domain}</Link>
+                                                                    <Link href={`${MERCHANTS}${CLIENT}/${client?.domain}`}>{client.domain}</Link>
                                                                 </TableCell>
                                                                 <TableCell align="center">{client.detail?.users}</TableCell>
                                                                 <TableCell align="center">{client.detail?.sessions}</TableCell>
