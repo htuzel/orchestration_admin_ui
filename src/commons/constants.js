@@ -3,4 +3,4 @@ export const APP_URL = "https://api.tagmetrica.com";
 export const API_URL = APP_URL + "/api";
 
 
-export const CLIENT_USERS_LIMIT = 10;
+export const CLIENT_USERS_LIMIT = 15;

@@ -16,8 +16,7 @@ import Link from 'next/link'
 import {MERCHANTS, CLIENT} from "@/commons/router";
 
 const Merchants = (props) => {
-    const {merchants} = props;
-
+    const {merchants,allClients} = props;
     return (
         <>
             <PageTabs/>
@@ -49,16 +48,16 @@ const Merchants = (props) => {
                                                         merchant.clients.map((client, key) => (
                                                             <TableRow hover key={key}>
                                                                 <TableCell component="th" scope="row">
-                                                                    <Link href={`${MERCHANTS}${CLIENT}/${client?.domain}`}>{client.domain}</Link>
+                                                                    <Link href={`${CLIENT}/${client?.domain}`}>{client.domain}</Link>
                                                                 </TableCell>
-                                                                <TableCell align="center">{client.detail?.users}</TableCell>
-                                                                <TableCell align="center">{client.detail?.sessions}</TableCell>
-                                                                <TableCell align="center">{client.detail?.pageviews}</TableCell>
-                                                                <TableCell align="center">{client.detail?.events}</TableCell>
+                                                                <TableCell align="center">{client.detail?.userCount || 0}</TableCell>
+                                                                <TableCell align="center">{client.detail?.sessionCount || 0}</TableCell>
+                                                                <TableCell align="center">{client.detail?.pageviewCount || 0}</TableCell>
+                                                                <TableCell align="center">{client.detail?.eventCount || 0}</TableCell>
                                                                 <TableCell align="center">0</TableCell>
                                                                 <TableCell align="center" className="manage">
                                                                     <span><Icon icon="mdi:gear"/></span>
-                                                                    <Link href={`${MERCHANTS}${CLIENT}/${client && client._id}/dashboard`}><span><Icon icon="material-symbols:dashboard"/></span></Link>
+                                                                    <Link href={`${CLIENT}/${client && client._id}/dashboard`}><span><Icon icon="material-symbols:dashboard"/></span></Link>
                                                                 </TableCell>
                                                             </TableRow>
                                                         ))
@@ -81,6 +80,7 @@ const Merchants = (props) => {
 const mapStateToProps = (state) => {
     return {
         merchants: state.merchantsReducer.merchants,
+        allClients: state.clientsReducer.allClients,
     }
 }
 

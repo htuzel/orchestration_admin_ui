@@ -26,9 +26,9 @@ const Client = (props) => {
 
     const [selectedClientUsers, setSelectedClientUsers] = useState("");
     const [selectedPage, setSelectedPage] = useState("");
-    const [pageNumber, setPageNumber] = useState(router.query.page || 1);
+    const [pageNumber, setPageNumber] = useState(1);
     const [maxPage, setMaxPage] = useState("");
-
+    console.log("pageNumber", pageNumber)
     useEffect(() => {
         fetchClientUsersWithPagination(domain, pageNumber);
     }, []);
@@ -73,7 +73,7 @@ const Client = (props) => {
                                     <div className="client">{domain}</div>
                                 </div>
                                 <div className="right">
-                                    <Button variant="outlined" className="back">Back to merchants</Button>
+                                    <Link href={MERCHANTS}><Button variant="outlined" className="back">Back to merchants</Button></Link>
                                     <Button variant="outlined" className="config"><Icon icon="mdi:gear"/></Button>
                                 </div>
                             </div>
@@ -90,9 +90,9 @@ const Client = (props) => {
                                             {
                                                 selectedPage?.results.map((user, key) => (
                                                     <TableRow hover key={key}>
-                                                        <TableCell align="left">{user.email || "Anonymous"} <Chip label={user._id} size={"small"} color="primary"/></TableCell>
-                                                        <TableCell align="center" className="manage">
-                                                            <Link href={`${MERCHANTS}${CLIENT}/düzeltilecek/dashboard`}><span><Icon icon="material-symbols:dashboard"/></span></Link>
+                                                        <TableCell align="left center">{user.email || "Anonymous"} <Chip label={user._id} size={"small"} color="primary"/></TableCell>
+                                                        <TableCell className="manage">
+                                                            <Link href={`${CLIENT}/${domain}/user/${user._id}`}><span><Icon icon="material-symbols:dashboard"/></span></Link>
                                                         </TableCell>
                                                     </TableRow>
                                                 ))

@@ -48,7 +48,7 @@ const Search = (props) => {
                     </div>
                 </div>
                 {
-                    showList &&
+                    (showList && search) &&
                     <div className="list">
                         {
                             !load ?
@@ -63,7 +63,7 @@ const Search = (props) => {
                                                     </ListItemAvatar>
                                                     <ListItemText
                                                         primary={
-                                                            <Link href={`${MERCHANTS}${CLIENT}/${user && user._id}`} onClick={() => setShowList(false)}>
+                                                            <Link href={`${CLIENT}/${user.client}/user/${user._id}`} onClick={() => setShowList(false)}>
                                                                 {user.email}
                                                             </Link>
                                                         }

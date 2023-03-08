@@ -11,8 +11,13 @@ import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 import {LeadScore} from "@/components/mini/mini";
+import {useRouter} from "next/router";
+import Link from 'next/link'
+import {CLIENT} from "@/commons/router";
 
 const Client = () => {
+    const router = useRouter()
+    const domain = router.query.domain
     return (
         <div className={styles.clientDashboard}>
             <div className="content-wrapper">
@@ -21,7 +26,7 @@ const Client = () => {
                         <div className="client"><span>Turacoon.com</span></div>
                     </div>
                     <div className="right">
-                        <Button variant="outlined" className="back">Back to clients</Button>
+                        <Link href={`${CLIENT}/${domain}`}><Button variant="outlined" className="back">Back to clients</Button></Link>
                         <Button variant="outlined" className="config"><Icon icon="mdi:gear"/></Button>
                     </div>
                 </div>

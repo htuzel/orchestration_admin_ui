@@ -4,6 +4,7 @@ import {CLIENT_USERS_LIMIT} from "@/commons/constants";
 
 export const SET_CLIENT_USERS = "SET_CLIENT_USERS";
 export const SET_SEARCHED_USERS = "SET_SEARCHED_USERS";
+export const SET_ALL_CLIENTS = "SET_ALL_CLIENTS";
 
 export const fetchClientUsersWithPagination = (domain, page) => {
     return async (dispatch, getState) => {
@@ -15,6 +16,14 @@ export const fetchClientUsersWithPagination = (domain, page) => {
         } catch (e) {
             console.log(e);
         }
+    }
+}
+
+export const setClientUsers = (domain, users) => {
+    return {
+        type: SET_CLIENT_USERS,
+        domain: domain,
+        value: users
     }
 }
 
@@ -32,19 +41,29 @@ export const fetchUserWithSearch = (value) => {
     }
 }
 
-
-export const setClientUsers = (domain, users) => {
-    return {
-        type: SET_CLIENT_USERS,
-        domain: domain,
-        value: users
-    }
-}
-
-
 export const setSearchedUsers = (value) => {
     return {
         type: SET_SEARCHED_USERS,
         value: value
+    }
+}
+
+export const fetchAllClients = (value) => {
+    return async (dispatch, getState) => {
+        try {
+            let response = await axios.get(`${API_URL}/admin/merchants/clients/stats?filter=100`, {
+                headers: {Authorization: `Basic ${getState().userReducer.apiToken}`}
+            });
+            dispatch(setAllClients(response.data))
+        } catch (e) {
+            console.log(e);
+        }
+    }
+}
+
+export const setAllClients = (allClients) => {
+    return {
+        type: SET_ALL_CLIENTS,
+        value: allClients
     }
 }
