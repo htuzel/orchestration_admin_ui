@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import Link from "next/link";
-import {CLIENT, MERCHANTS} from "@/commons/router";
+import {CLIENT, CLIENTS} from "@/commons/router";
 import {Icon} from '@iconify/react';
 import customTableStyles from '@/styles/CustomTable.module.scss'
 import Button from '@mui/material/Button';
@@ -73,7 +73,7 @@ const Client = (props) => {
                                     <div className="client">{domain}</div>
                                 </div>
                                 <div className="right">
-                                    <Link href={MERCHANTS}><Button variant="outlined" className="back">Back to merchants</Button></Link>
+                                    <Link href={CLIENTS}><Button variant="outlined" className="back">Back to clients</Button></Link>
                                     <Button variant="outlined" className="config"><Icon icon="mdi:gear"/></Button>
                                 </div>
                             </div>

@@ -3,6 +3,7 @@ import styles from './Navbar.module.scss';
 import {Icon} from '@iconify/react';
 import Link from "next/link";
 import Search from "@/components/navbar/search";
+import {LOGOUT} from "@/commons/router";
 
 const Navbar = () => {
     return (
@@ -10,7 +11,7 @@ const Navbar = () => {
             <div className="content-wrapper">
                 <div className="left">
                     <div className="logo">
-                        <Link href="/merchants"><img src="https://flalingo.com/cdn-cgi/image/f=auto,width=550,quality=90/img/new_home/responsive_img/logo_withouth_motto_w_1400.webp"/></Link>
+                        <Link href="/clients"><img src="https://flalingo.com/cdn-cgi/image/f=auto,width=550,quality=90/img/new_home/responsive_img/logo_withouth_motto_w_1400.webp"/></Link>
                     </div>
                     <Search/>
                 </div>
@@ -19,7 +20,7 @@ const Navbar = () => {
                         <ul>
                             <li className="left-icon"><Icon icon="ic:round-plus"/> Add Product</li>
                             <li>Support <Icon icon="material-symbols:arrow-drop-down-sharp"/></li>
-                            <li>English (US) <Icon icon="material-symbols:arrow-drop-down-sharp"/></li>
+                            <li><Link href={LOGOUT}>Logout</Link></li>
                         </ul>
                     </div>
                     <div className="profile">

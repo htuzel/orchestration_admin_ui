@@ -5,12 +5,11 @@ import {getCookie} from "@/commons/helpers";
 import {API_TOKEN_NAME} from "@/commons/constants";
 import Navbar from "@/components/navbar/navbar";
 import Head from "next/head";
-import {fetchMerchants} from "@/redux/actions/merchantsAction";
 import {fetchAllClients} from "@/redux/actions/clientsAction";
 import LinearProgress from '@mui/material/LinearProgress';
 
 const ProtectedLayout = (props) => {
-    const {children, setApiToken, fetchMerchants, fetchAllClients} = props;
+    const {children, setApiToken, fetchAllClients} = props;
     const [load, setLoad] = useState(false);
 
 
@@ -19,7 +18,6 @@ const ProtectedLayout = (props) => {
             const apiToken = getCookie(API_TOKEN_NAME);
             await setApiToken(apiToken);
             await fetchAllClients();
-            await fetchMerchants();
             await setLoad(true);
         }
 
@@ -54,12 +52,10 @@ const ProtectedLayout = (props) => {
 
 const mapStateToProps = (state => ({
     apiToken: state.userReducer.apiToken,
-    merchants: state.merchantsReducer.merchants,
 }));
 
 const mapDispatchToProps = {
     setApiToken,
-    fetchMerchants,
     fetchAllClients
 };
 

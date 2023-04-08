@@ -4,7 +4,7 @@ import Link from 'next/link'
 const Dashboard = () => {
     return (
         <div>
-            <Link href="/merchants"><button>Merchants</button></Link>
+            <Link href="/clients"><button>clients</button></Link>
         </div>
     );
 };

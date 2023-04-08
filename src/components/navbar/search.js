@@ -8,7 +8,7 @@ import ListItemText from "@mui/material/ListItemText";
 import {connect} from "react-redux";
 import Alert from '@mui/material/Alert';
 import Link from "next/link";
-import {CLIENT, MERCHANTS} from "@/commons/router";
+import {CLIENT} from "@/commons/router";
 import ClickAwayListener from '@mui/base/ClickAwayListener';
 import {fetchUserWithSearch} from "@/redux/actions/clientsAction";
 import LinearProgress from '@mui/material/LinearProgress';
@@ -88,7 +88,6 @@ const Search = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        clients: state.merchantsReducer.clients,
         searchedUsers: state.clientsReducer.searchedUsers,
     }
 }

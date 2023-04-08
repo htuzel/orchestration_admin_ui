@@ -1,21 +1,11 @@
-.merchants :global {
+.clients :global {
   .content-wrapper {
     width: 1280px;
     max-width: 100%;
     margin: 50px auto 0 auto;
 
-    .top {
-      margin-bottom: 30px;
-
-      .title {
-        color: black;
-        font-size: 30px;
-        font-weight: 600;
-      }
-    }
-
     .content {
-      .merchant {
+      .client {
         margin-bottom: 50px;
 
         .header {

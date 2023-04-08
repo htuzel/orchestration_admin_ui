@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import {login} from "@/redux/actions/authAction";
 import {connect} from "react-redux";
 import {useRouter} from 'next/router'
-import {DASHBOARD} from "@/commons/router";
+import {CLIENTS} from "@/commons/router";
 import AuthLayout from "@/layouts/authLayout";
 
 const Login = (props) => {
@@ -18,7 +18,7 @@ const Login = (props) => {
     const handleLogin = async () => {
         const loginResponse = await props.login(email, password);
         if (loginResponse) {
-            router.push(DASHBOARD)
+            router.push(CLIENTS)
             setError(false);
         }
         else {
@@ -50,8 +50,7 @@ const Login = (props) => {
 
 Login.getLayout = (page) => <AuthLayout>{page}</AuthLayout>;
 
-const mapStateToProps = (state => ({
-}));
+const mapStateToProps = (state => ({}));
 
 const mapDispatchToProps = {
     login
