@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '@/styles/Client.module.scss';
 import TableContainer from "@mui/material/TableContainer";
 import Paper from "@mui/material/Paper";
@@ -8,31 +8,33 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import Link from "next/link";
-import {CLIENT, CLIENTS} from "@/commons/router";
-import {Icon} from '@iconify/react';
+import { CLIENT, CLIENTS } from "@/commons/router";
+import { Icon } from '@iconify/react';
 import customTableStyles from '@/styles/CustomTable.module.scss'
 import Button from '@mui/material/Button';
-import {useRouter} from 'next/router'
-import {connect} from "react-redux";
-import {fetchClientUsersWithPagination} from "@/redux/actions/clientsAction";
+import { useRouter } from 'next/router'
+import { connect } from "react-redux";
+import { fetchClientUsersWithPagination } from "@/redux/actions/clientsAction";
 import Pagination from '@mui/material/Pagination';
-import {CLIENT_USERS_LIMIT} from "@/commons/constants";
+import { CLIENT_USERS_LIMIT } from "@/commons/constants";
 import Chip from "@mui/material/Chip";
 import { LinearProgress } from '@mui/material';
+import { checkUserEmail } from "@/commons/helpers";
 
 const Client = (props) => {
     const router = useRouter()
     const domain = router.query.domain
-    const {clientUsers, fetchClientUsersWithPagination} = props;
+    const { clientUsers, fetchClientUsersWithPagination } = props;
 
     const [selectedClientUsers, setSelectedClientUsers] = useState("");
     const [selectedPage, setSelectedPage] = useState("");
     const [pageNumber, setPageNumber] = useState(1);
     const [maxPage, setMaxPage] = useState("");
-    console.log("pageNumber", pageNumber)
     useEffect(() => {
-        fetchClientUsersWithPagination(domain, pageNumber);
-    }, []);
+        if (domain) {
+            fetchClientUsersWithPagination(domain, pageNumber);
+        }
+    }, [domain]);
 
     useEffect(() => {
         if (clientUsers[domain]) {
@@ -45,9 +47,11 @@ const Client = (props) => {
             changeSelectedPage();
         }
         else {
-            fetchClientUsersWithPagination(domain, pageNumber);
+            if (domain) {
+                fetchClientUsersWithPagination(domain, pageNumber);
+            }
         }
-    }, [pageNumber]);
+    }, [pageNumber, domain]);
 
     const changeSelectedPage = () => {
         const selectedUsers = clientUsers[domain];
@@ -75,7 +79,7 @@ const Client = (props) => {
                                 </div>
                                 <div className="right">
                                     <Link href={CLIENTS}><Button variant="outlined" className="back">Back to clients</Button></Link>
-                                    <Button variant="outlined" className="config"><Icon icon="mdi:gear"/></Button>
+                                    <Button variant="outlined" className="config"><Icon icon="mdi:gear" /></Button>
                                 </div>
                             </div>
                             <div className="content">
@@ -91,9 +95,9 @@ const Client = (props) => {
                                             {
                                                 selectedPage?.results.map((user, key) => (
                                                     <TableRow hover key={key}>
-                                                        <TableCell align="left center">{user.email || "Anonymous"} <Chip label={user._id} size={"small"} color="primary"/></TableCell>
+                                                        <TableCell align="left">{checkUserEmail(user.email)} <Chip label={user._id} size={"small"} color="primary" /></TableCell>
                                                         <TableCell className="manage">
-                                                            <Link href={`${CLIENT}/${domain}/user/${user._id}`}><span><Icon icon="material-symbols:dashboard"/></span></Link>
+                                                            <Link href={`${CLIENT}/${domain}/user/${user._id}`}><span><Icon icon="material-symbols:dashboard" /></span></Link>
                                                         </TableCell>
                                                     </TableRow>
                                                 ))
@@ -105,7 +109,7 @@ const Client = (props) => {
                             {
                                 maxPage ?
                                     <div className="paginate">
-                                        <Pagination count={maxPage} page={pageNumber} onChange={changePageNumber}/>
+                                        <Pagination count={maxPage} page={pageNumber} onChange={changePageNumber} />
                                     </div>
                                     : ""
                             }

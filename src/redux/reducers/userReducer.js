@@ -1,7 +1,9 @@
+import Cookies from 'js-cookie'
 import {SET_API_TOKEN} from "../actions/authAction";
+import {API_TOKEN_NAME} from "@/commons/constants";
 
 const initalState = {
-    apiToken: ""
+    apiToken: Cookies.get(API_TOKEN_NAME) || ""
 }
 
 const userReducer = (state = initalState, action) => {
