@@ -18,6 +18,7 @@ import {fetchClientUsersWithPagination} from "@/redux/actions/clientsAction";
 import Pagination from '@mui/material/Pagination';
 import {CLIENT_USERS_LIMIT} from "@/commons/constants";
 import Chip from "@mui/material/Chip";
+import { LinearProgress } from '@mui/material';
 
 const Client = (props) => {
     const router = useRouter()
@@ -111,7 +112,7 @@ const Client = (props) => {
                         </div>
                     </div>
                     :
-                    "Yükleniyor.."
+                    <LinearProgress />
             }
         </>
     );
