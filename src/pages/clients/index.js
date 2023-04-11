@@ -12,7 +12,7 @@ import PageTabs from "@/components/page-tabs/pageTabs";
 import {Icon} from '@iconify/react';
 import Link from 'next/link'
 import {CLIENT} from "@/commons/router";
-
+import { LinearProgress } from '@mui/material';
 const Clients = (props) => {
     const {allClients} = props;
     return (
@@ -62,7 +62,7 @@ const Clients = (props) => {
                                         </Table>
                                     </TableContainer>
                                 </div>
-                                : "yükleniyor..."
+                                : <LinearProgress />
                         }
                     </div>
                 </div>
