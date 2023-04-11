@@ -24,3 +24,7 @@ export const getCookie = (cname) => {
 export const deleteCookie = (cname) => {
     document.cookie = cname + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 };
+
+export const checkUserEmail = (email) => {
+    return email || "Anonymous";
+}

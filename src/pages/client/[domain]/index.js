@@ -18,6 +18,7 @@ import {fetchClientUsersWithPagination} from "@/redux/actions/clientsAction";
 import Pagination from '@mui/material/Pagination';
 import {CLIENT_USERS_LIMIT} from "@/commons/constants";
 import Chip from "@mui/material/Chip";
+import {checkUserEmail} from "@/commons/helpers";
 
 const Client = (props) => {
     const router = useRouter()
@@ -28,10 +29,11 @@ const Client = (props) => {
     const [selectedPage, setSelectedPage] = useState("");
     const [pageNumber, setPageNumber] = useState(1);
     const [maxPage, setMaxPage] = useState("");
-    console.log("pageNumber", pageNumber)
     useEffect(() => {
-        fetchClientUsersWithPagination(domain, pageNumber);
-    }, []);
+        if (domain) {
+            fetchClientUsersWithPagination(domain, pageNumber);
+        }
+    }, [domain]);
 
     useEffect(() => {
         if (clientUsers[domain]) {
@@ -44,9 +46,11 @@ const Client = (props) => {
             changeSelectedPage();
         }
         else {
-            fetchClientUsersWithPagination(domain, pageNumber);
+            if (domain) {
+                fetchClientUsersWithPagination(domain, pageNumber);
+            }
         }
-    }, [pageNumber]);
+    }, [pageNumber, domain]);
 
     const changeSelectedPage = () => {
         const selectedUsers = clientUsers[domain];
@@ -90,7 +94,7 @@ const Client = (props) => {
                                             {
                                                 selectedPage?.results.map((user, key) => (
                                                     <TableRow hover key={key}>
-                                                        <TableCell align="left center">{user.email || "Anonymous"} <Chip label={user._id} size={"small"} color="primary"/></TableCell>
+                                                        <TableCell align="left">{checkUserEmail(user.email)} <Chip label={user._id} size={"small"} color="primary"/></TableCell>
                                                         <TableCell className="manage">
                                                             <Link href={`${CLIENT}/${domain}/user/${user._id}`}><span><Icon icon="material-symbols:dashboard"/></span></Link>
                                                         </TableCell>
