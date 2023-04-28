@@ -34,7 +34,7 @@ const UserDetail = (props) => {
     }, []);
 
     const {user} = selectedUser;
-console.log(selectedUser)
+    console.log(selectedUser)
     return (
         <>
             {
@@ -211,13 +211,11 @@ console.log(selectedUser)
                             </div>
                         </div>
                     </div>
-
                     :
                     <LinearProgress/>
             }
         </>
-    )
-        ;
+    );
 };
 
 const mapStateToProps = (state) => {

@@ -51,7 +51,7 @@ export const setSearchedUsers = (value) => {
 export const fetchAllClients = (value) => {
     return async (dispatch, getState) => {
         try {
-            let response = await axios.get(`${API_URL}/admin/merchants/clients/stats?filter=100`, {
+            let response = await axios.get(`${API_URL}/admin/merchants/clients/stats?filter=15`, {
                 headers: {Authorization: `Basic ${getState().userReducer.apiToken}`}
             });
             dispatch(setAllClients(response.data))

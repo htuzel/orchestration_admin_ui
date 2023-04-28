@@ -12,18 +12,19 @@ import PageTabs from "@/components/page-tabs/pageTabs";
 import {Icon} from '@iconify/react';
 import Link from 'next/link'
 import {CLIENT} from "@/commons/router";
-import { LinearProgress } from '@mui/material';
+import {LinearProgress} from '@mui/material';
+
 const Clients = (props) => {
     const {allClients} = props;
     return (
         <>
             <PageTabs test={"engin"}/>
-            <main className={styles.clients}>
-                <div className="content-wrapper">
-                    <div className="content">
-                        {
-                            Object.keys(allClients).length > 0
-                                ?
+            {
+                Object.keys(allClients).length > 0
+                    ?
+                    <main className={styles.clients}>
+                        <div className="content-wrapper">
+                            <div className="content">
                                 <div className="client">
                                     <TableContainer component={Paper} className={customTableStyles.customTable}>
                                         <Table aria-label="simple table">
@@ -62,11 +63,12 @@ const Clients = (props) => {
                                         </Table>
                                     </TableContainer>
                                 </div>
-                                : <LinearProgress />
-                        }
-                    </div>
-                </div>
-            </main>
+                            </div>
+                        </div>
+                    </main>
+
+                    : <LinearProgress/>
+            }
         </>
     )
 }
@@ -78,7 +80,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = {
-};
+const mapDispatchToProps = {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Clients);
