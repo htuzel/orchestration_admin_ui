@@ -28,6 +28,37 @@
         display: flex;
         gap: 10px;
 
+        .middle {
+          margin-right: 2rem;
+          border-radius: 0.25rem;
+
+          .list {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+
+
+            .list-filter {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 0.2rem 0.5rem;
+              color: #1976d2;
+              cursor: pointer;
+
+              &:hover {
+                border-bottom: 2px solid #1976d2;
+              }
+
+              .item-prg {
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+
+
         .config {
           min-width: max-content;
         }
@@ -51,7 +82,6 @@
   padding-bottom: 50px;
 
   .content-wrapper {
-
     .mini-title {
       //font-size: 18px;
       //color: #605f60;
@@ -96,7 +126,7 @@
       }
     }
 
-    > .content {
+    >.content {
       display: flex;
       gap: 30px;
 
@@ -127,16 +157,117 @@
           align-items: center;
           gap: 10px;
 
-          > .content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            align-items: flex-start;
-          }
-
           .title {
             font-size: 18px;
             color: #605f60;
+          }
+
+          .addToFeature {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            .addFeature {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+
+              .outSettings {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #bdbdbd;
+                padding: 0.4rem;
+                border-radius: 0.2rem;
+                cursor: pointer;
+                color: #bdbdbd;
+
+                .Settings {}
+
+                &:hover {
+                  background-color: #e6e6e6;
+                  color: #8c8c8c;
+                }
+              }
+            }
+
+            .addto-text {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              align-items: stretch;
+              justify-content: space-between;
+              margin-top: 0.5rem;
+
+              .addto-ınput {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .textInput {
+                  padding: 0.4rem;
+                  width: 100%;
+                  margin-right: 2px;
+                  border: 1px solid #bdbdbd;
+                  outline: none;
+                  border-radius: 0.2rem;
+                }
+              }
+
+              p {
+                color: red;
+                font-size: 0.8rem;
+                margin-top: 0.2rem;
+                text-align: center;
+              }
+            }
+
+            .outCheck {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 1px solid #080;
+              padding: 0.4rem;
+              border-radius: 0.2rem;
+              color: #080;
+              cursor: pointer;
+
+              &:hover {
+                background-color: #e6ffe6;
+                color: #080;
+              }
+            }
+          }
+        }
+
+        .content {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 5px;
+          align-items: flex-start;
+
+          .item-list {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #1976d2;
+            padding: 0.1rem 0.7rem;
+            border-radius: 0.4rem;
+            color: #1976d2;
+
+            .item-prg {
+              width: 100%;
+            }
+
+            .delete-icon {
+              font-size: 1.5rem;
+              color: red;
+              cursor: pointer;
+            }
           }
         }
       }
@@ -151,7 +282,7 @@
           display: flex;
           gap: 10px;
 
-          > div {
+          >div {
             flex: 1;
             padding: 10px;
           }
@@ -185,7 +316,7 @@
           display: flex;
           gap: 10px;
 
-          > div {
+          >div {
             flex: 1;
             height: 320px;
             padding: 10px;

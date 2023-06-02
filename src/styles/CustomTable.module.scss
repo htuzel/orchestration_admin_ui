@@ -1,27 +1,99 @@
-.customTable :global{
-  .MuiTableCell-head {
-    font-weight: bold;
-  }
+.customTable :global {
 
-  .manage {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
+  .table {
 
-    span {
-      background-color: #f3f4f6;
-      color: #838383;
-      width: 35px;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 100%;
-      cursor: pointer;
 
-      &:hover {
-        background-color: #d8eafb;
+    .table-head {
+      .table-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #cccccc;
+        padding: 0.7rem 0.5rem;
+
+        .table-title {
+          
+          font-size: 1.2rem;
+          font-weight: 600;
+          border: none !important;
+
+          &:nth-child(1) {
+            width: 30%;
+            text-align: left !important;
+          }
+
+          &:nth-child(2) {
+            width: 50%;
+            text-align: center !important;
+          }
+
+          &:nth-child(3) {
+            width: 20%;
+            text-align: right !important;
+          }
+        }
       }
     }
+
+    .table-body {
+      .user {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #cccccc;
+        padding: 1rem 0.5rem;
+
+        .email {
+          width: 30%;
+          display: flex;
+          justify-content: flex-start;
+          border: none !important;
+        }
+
+        .segment {
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          border: none !important;
+
+          p {
+            margin: 0 0.2rem;
+            background-color: #1976d2;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.2rem;
+          }
+        }
+
+        .manage {
+          width: 20%;
+          display: flex;
+          justify-content: flex-end;
+
+          gap: 5px;
+          border: none !important;
+
+          span {
+            background-color: #f3f4f6;
+            color: #838383;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100%;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #d8eafb;
+            }
+          }
+        }
+      }
+    }
+
   }
+
+
 }

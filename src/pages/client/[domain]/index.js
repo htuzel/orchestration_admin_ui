@@ -20,15 +20,28 @@ import { CLIENT_USERS_LIMIT } from "@/commons/constants";
 import Chip from "@mui/material/Chip";
 import { LinearProgress } from '@mui/material';
 import { checkUserEmail } from "@/commons/helpers";
+import { FiFilter } from 'react-icons/fi';
+import { fatureLıst, fatureLıstDelete } from '@/redux/actions/featureListAction';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Client = (props) => {
     const router = useRouter()
     const domain = router.query.domain
     const { clientUsers, fetchClientUsersWithPagination } = props;
-
     const [selectedClientUsers, setSelectedClientUsers] = useState("");
     const [selectedPage, setSelectedPage] = useState("");
     const [pageNumber, setPageNumber] = useState(1);
+    const { segments } = useSelector(state => state.featureLıstReducer);
+    const { allSegments } = useSelector(state => state.featureLıstReducer);
+
+    segments.forEach((segment) => {
+        const existingSegment = allSegments.find((s) => s.value === segment.value);
+
+        if (!existingSegment) {
+            allSegments.push(segment);
+        }
+    });
+    
     const [maxPage, setMaxPage] = useState("");
     useEffect(() => {
         if (domain) {
@@ -78,24 +91,43 @@ const Client = (props) => {
                                     <div className="client">{domain}</div>
                                 </div>
                                 <div className="right">
+                                    <div className="middle">
+                                        <div className="list">
+                                            {
+                                                allSegments.map((chip, index) => (
+                                                    <div key={index} className="list-filter">
+                                                        <p className='item-prg'>{chip.value}</p>
+                                                        <FiFilter />
+                                                    </div>
+                                                ))
+                                            }
+                                        </div>
+                                    </div>
                                     <Link href={CLIENTS}><Button variant="outlined" className="back">Back to clients</Button></Link>
                                     <Button variant="outlined" className="config"><Icon icon="mdi:gear" /></Button>
                                 </div>
                             </div>
                             <div className="content">
                                 <TableContainer component={Paper} className={customTableStyles.customTable}>
-                                    <Table aria-label="simple table">
-                                        <TableHead>
-                                            <TableRow>
-                                                <TableCell align="left">E-mail</TableCell>
-                                                <TableCell align="center">Manage</TableCell>
+                                    <Table className='table' aria-label="simple table">
+                                        <TableHead className='table-head'>
+                                            <TableRow className='table-nav'>
+                                                <TableCell className='table-title' >E-mail</TableCell>
+                                                <TableCell className='table-title' >Segment</TableCell>
+                                                <TableCell className='table-title' >Manage</TableCell>
                                             </TableRow>
                                         </TableHead>
-                                        <TableBody>
+                                        <TableBody className='table-body'>
                                             {
                                                 selectedPage?.results.map((user, key) => (
-                                                    <TableRow hover key={key}>
-                                                        <TableCell align="left">{checkUserEmail(user.email)} <Chip label={user._id} size={"small"} color="primary" /></TableCell>
+                                                    <TableRow className='user' hover key={key}>
+                                                        <TableCell className='email' align="left">{checkUserEmail(user.email)} <Chip label={user._id} size={"small"} color="primary" />
+                                                        </TableCell>
+                                                        <TableCell className='segment'>
+                                                            {segments.map(segment => (
+                                                                <p key={segment.id}>{segment.value}</p>
+                                                            ))}
+                                                        </TableCell>
                                                         <TableCell className="manage">
                                                             <Link href={`${CLIENT}/${domain}/user/${user._id}`}><span><Icon icon="material-symbols:dashboard" /></span></Link>
                                                         </TableCell>
