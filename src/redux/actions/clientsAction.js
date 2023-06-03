@@ -68,7 +68,7 @@ export const setAllClients = (allClients) => {
     }
 }
 
-export const fetUserDetail = () => {
+export const fetUserDetail = (userId,email,clientId) => {
     return async (dispatch, getState) => {
         let response = await axios.get(`${API_URL}/admin/client/users/stats?userId=6415a12dfc69a6fe1f9c631a&email=htegiz@yahoo.com&clientId=6415660be02a65eea49a00d6`, {
             headers: {Authorization: `Basic ${getState().userReducer.apiToken}`}

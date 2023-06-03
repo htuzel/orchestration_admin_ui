@@ -30,7 +30,6 @@ const featureLıstReducer = (state = initialState, action) => {
                 segments: [...state.segments, newSegment]
             }
         case FEATURE_LIST_DELETE:
-            console.log(action.value);
             return {
                 ...state,
                 segments: state.segments.filter((item, index) => index !== action.value)

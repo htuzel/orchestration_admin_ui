@@ -19,56 +19,50 @@ const Clients = (props) => {
     return (
         <>
             <PageTabs test={"engin"}/>
-            {
-                Object.keys(allClients).length > 0
-                    ?
-                    <main className={styles.clients}>
-                        <div className="content-wrapper">
-                            <div className="content">
-                                <div className="client">
-                                    <TableContainer component={Paper} className={customTableStyles.customTable}>
-                                        <Table aria-label="simple table">
-                                            <TableHead>
-                                                <TableRow>
-                                                    <TableCell>Client</TableCell>
-                                                    <TableCell align="center">Users</TableCell>
-                                                    <TableCell align="center">Sessions</TableCell>
-                                                    <TableCell align="center">Pageviews</TableCell>
-                                                    <TableCell align="center">Events</TableCell>
-                                                    <TableCell align="center">Major Events</TableCell>
-                                                    <TableCell align="center">Manage</TableCell>
+            <main className={styles.clients}>
+                <div className="content-wrapper">
+                    <div className="content">
+                        <div className="client">
+                            <TableContainer component={Paper} className={customTableStyles.customTable}>
+                                <Table aria-label="simple table">
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell>Client</TableCell>
+                                            <TableCell align="center">Users</TableCell>
+                                            <TableCell align="center">Sessions</TableCell>
+                                            <TableCell align="center">Pageviews</TableCell>
+                                            <TableCell align="center">Events</TableCell>
+                                            <TableCell align="center">Major Events</TableCell>
+                                            <TableCell align="center">Manage</TableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        {
+                                            allClients.map((client, key) => (
+                                                <TableRow hover key={key}>
+                                                    <TableCell component="th" scope="row">
+                                                        <Link href={`${CLIENT}/${client._id}`}>{client._id}</Link>
+                                                    </TableCell>
+                                                    <TableCell align="center">{client?.userCount || 0}</TableCell>
+                                                    <TableCell align="center">{client?.sessionCount || 0}</TableCell>
+                                                    <TableCell align="center">{client?.pageviewCount || 0}</TableCell>
+                                                    <TableCell align="center">{client?.eventCount || 0}</TableCell>
+                                                    <TableCell align="center">0</TableCell>
+                                                    <TableCell align="center" className="manage">
+                                                        <span><Icon icon="mdi:gear"/></span>
+                                                        {/*<Link href={`${CLIENT}/${client && client._id}/dashboard`}><span><Icon icon="material-symbols:dashboard"/></span></Link>*/}
+                                                        <span><Icon icon="material-symbols:dashboard"/></span>
+                                                    </TableCell>
                                                 </TableRow>
-                                            </TableHead>
-                                            <TableBody>
-                                                {
-                                                    allClients.map((client, key) => (
-                                                        <TableRow hover key={key}>
-                                                            <TableCell component="th" scope="row">
-                                                                <Link href={`${CLIENT}/${client._id}`}>{client._id}</Link>
-                                                            </TableCell>
-                                                            <TableCell align="center">{client?.userCount || 0}</TableCell>
-                                                            <TableCell align="center">{client?.sessionCount || 0}</TableCell>
-                                                            <TableCell align="center">{client?.pageviewCount || 0}</TableCell>
-                                                            <TableCell align="center">{client?.eventCount || 0}</TableCell>
-                                                            <TableCell align="center">0</TableCell>
-                                                            <TableCell align="center" className="manage">
-                                                                <span><Icon icon="mdi:gear"/></span>
-                                                                {/*<Link href={`${CLIENT}/${client && client._id}/dashboard`}><span><Icon icon="material-symbols:dashboard"/></span></Link>*/}
-                                                                <span><Icon icon="material-symbols:dashboard"/></span>
-                                                            </TableCell>
-                                                        </TableRow>
-                                                    ))
-                                                }
-                                            </TableBody>
-                                        </Table>
-                                    </TableContainer>
-                                </div>
-                            </div>
+                                            ))
+                                        }
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
                         </div>
-                    </main>
-
-                    : <LinearProgress/>
-            }
+                    </div>
+                </div>
+            </main>
         </>
     )
 }

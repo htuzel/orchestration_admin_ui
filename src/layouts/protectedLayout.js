@@ -17,7 +17,10 @@ const ProtectedLayout = (props) => {
         async function initApp() {
             const apiToken = getCookie(API_TOKEN_NAME);
             await setApiToken(apiToken);
-            await fetchAllClients();
+            const fetchUserPromise = fetchAllClients();
+            await Promise.all([
+                fetchUserPromise,
+            ]);
             await setLoad(true);
         }
 

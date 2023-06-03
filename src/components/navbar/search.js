@@ -37,7 +37,6 @@ const Search = (props) => {
         }
     };
 
-
     return (
         <ClickAwayListener onClickAway={() => setShowList(false)}>
             <div className="search">

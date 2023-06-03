@@ -8,7 +8,7 @@
     .header {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       align-items: center;
 
       .left {
@@ -16,7 +16,6 @@
           background-color: #1976d2;
           color: white;
           width: max-content;
-          margin-bottom: 5px;
           border-radius: 4px;
           font-size: 15px;
           padding: 4px 12px;
@@ -28,39 +27,90 @@
         display: flex;
         gap: 10px;
 
-        .middle {
-          margin-right: 2rem;
-          border-radius: 0.25rem;
+        .config {
+          min-width: max-content;
+        }
+      }
+    }
 
-          .list {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
+    .filters {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
 
+      .segments {
+        min-width: 250px;
+        max-width: 450px;
 
-            .list-filter {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              padding: 0.2rem 0.5rem;
-              color: #1976d2;
-              cursor: pointer;
+        > div {
+          background-color: white;
+        }
+      }
+    }
 
-              &:hover {
-                border-bottom: 2px solid #1976d2;
-              }
+    .content {
+      display: flex;
+      gap: 30px;
 
-              .item-prg {
-                margin-right: 5px;
-              }
-            }
+      .left {
+        width: 70%;
+      }
+
+      .right {
+        flex: 1;
+
+        .custom-card {
+          background-color: white;
+          border-radius: 5px;
+          padding: 30px;
+          box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+        }
+
+        .online-count {
+          height: 40px;
+          margin-bottom: 10px;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          .circle {
+            width: 18px;
+            height: 18px;
+            border-radius: 100%;
+            border: 3px solid #6bdd00;
           }
         }
 
+        .users {
+          display: flex;
+          width: 100%;
+          gap: 8px;
+          flex-wrap: wrap;
 
-        .config {
-          min-width: max-content;
+          .user {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #bfbfbf;
+            padding: 0.1rem 0.7rem;
+            border-radius: 25px;
+            color: #535353;
+            gap: 5px;
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+
+            .circle {
+              width: 5px;
+              height: 5px;
+              border-radius: 100%;
+              border: 3px solid #a2cd7a;
+              background-color: #effec7;
+            }
+          }
         }
       }
     }
@@ -102,16 +152,26 @@
       align-items: center;
 
       .left {
-        .client {
-          span {
-            background-color: #1976d2;
-            color: white;
-            width: max-content;
-            margin-bottom: 5px;
-            border-radius: 4px;
-            font-size: 15px;
-            padding: 4px 12px;
-            font-weight: 400;
+        .sessions {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 300px;
+          gap: 10px;
+
+          .custom-select {
+            flex: 1;
+            margin: 0;
+          }
+
+          svg {
+            font-size: 30px;
+            color: #00000082;
+            cursor: pointer;
+
+            &:hover {
+              color: #000000;
+            }
           }
         }
       }
@@ -126,7 +186,7 @@
       }
     }
 
-    >.content {
+    > .content {
       display: flex;
       gap: 30px;
 
@@ -142,7 +202,26 @@
         width: 300px;
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
+
+        .mini-title {
+          justify-content: center;
+        }
+
+        .client {
+          span {
+            background-color: #1976d2;
+            color: white;
+            border-radius: 4px;
+            font-size: 15px;
+            padding: 4px 12px;
+            font-weight: 400;
+            width: 100%;
+            display: block;
+            text-align: center;
+            margin-bottom: 0;
+          }
+        }
 
         .progress-bar {
           display: flex;
@@ -152,80 +231,30 @@
         }
 
         .segments {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
+          position: relative;
 
           .title {
             font-size: 18px;
             color: #605f60;
           }
 
-          .addToFeature {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
+          .settings {
+            cursor: pointer;
+            color: #bdbdbd;
+            position: absolute;
+            right: 10px;
+            top: 10px;
 
-            .addFeature {
-              width: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-
-              .outSettings {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: 1px solid #bdbdbd;
-                padding: 0.4rem;
-                border-radius: 0.2rem;
-                cursor: pointer;
-                color: #bdbdbd;
-
-                .Settings {}
-
-                &:hover {
-                  background-color: #e6e6e6;
-                  color: #8c8c8c;
-                }
-              }
+            .settings {
             }
 
-            .addto-text {
-              width: 100%;
-              display: flex;
-              flex-direction: column;
-              align-items: stretch;
-              justify-content: space-between;
-              margin-top: 0.5rem;
-
-              .addto-ınput {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-
-                .textInput {
-                  padding: 0.4rem;
-                  width: 100%;
-                  margin-right: 2px;
-                  border: 1px solid #bdbdbd;
-                  outline: none;
-                  border-radius: 0.2rem;
-                }
-              }
-
-              p {
-                color: red;
-                font-size: 0.8rem;
-                margin-top: 0.2rem;
-                text-align: center;
-              }
+            &:hover {
+              color: #8c8c8c;
             }
+          }
 
-            .outCheck {
+          .add-segment {
+            .out-check {
               display: flex;
               align-items: center;
               justify-content: center;
@@ -241,35 +270,34 @@
               }
             }
           }
-        }
 
-        .content {
-          width: 100%;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 5px;
-          align-items: flex-start;
-
-          .item-list {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border: 1px solid #1976d2;
-            padding: 0.1rem 0.7rem;
-            border-radius: 0.4rem;
-            color: #1976d2;
-
-            .item-prg {
+          .content {
+            .item-list {
+              display: flex;
               width: 100%;
-            }
+              gap: 5px;
+              flex-wrap: wrap;
 
-            .delete-icon {
-              font-size: 1.5rem;
-              color: red;
-              cursor: pointer;
+              .item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border: 1px solid #1976d2;
+                padding: 0.1rem 0.7rem;
+                border-radius: 25px;
+                color: #1976d2;
+              }
+
+              .delete-icon {
+                font-size: 1.5rem;
+                color: red;
+                cursor: pointer;
+                display: none;
+              }
             }
           }
         }
+
       }
 
       .right {
@@ -282,7 +310,7 @@
           display: flex;
           gap: 10px;
 
-          >div {
+          > div {
             flex: 1;
             padding: 10px;
           }
@@ -316,7 +344,7 @@
           display: flex;
           gap: 10px;
 
-          >div {
+          > div {
             flex: 1;
             height: 320px;
             padding: 10px;
